@@ -16,7 +16,9 @@ class CategoryContoller extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::All();
+
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -48,8 +50,8 @@ class CategoryContoller extends Controller
         $newCategory->name = $data['name'];
         $newCategory->slug = Str::of($newCategory->name)->slug('-');
         $newCategory->save();
-        // redirect pagina della categoria
-        return redirect()->route('admin.categories.show', $newCategory->id);
+        // redirect pagina con tutte le categorie
+        return redirect()->route('admin.categories.index');
     }
 
     /**
