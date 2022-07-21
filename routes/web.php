@@ -27,6 +27,7 @@ Route::middleware('auth')
 ->group(function() { // creo gruppo che richiama /admin/home che richiama il controller
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('posts', 'PostController');
+    Route::resource('categories', 'CategoryContoller');
 });
 
 // Front Office
