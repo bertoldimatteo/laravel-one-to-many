@@ -29,6 +29,7 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+
         return view('admin.posts.create', compact('categories'));
     }
 
@@ -45,7 +46,7 @@ class PostController extends Controller
             'title' => 'required | string | max:255',
             'content' => 'required | string | max:65000',
             'published' => 'sometimes | accepted',
-            'category_id' => 'nullable | exists:categories, id',
+            'category_id' => 'nullable | exists:categories,id'
         ]);
         // prendo i dati request e creo il post
         $data = $request->all();
@@ -79,7 +80,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**

@@ -28,7 +28,7 @@
                         <select class="form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
                             <option value="">Seleziona la categoria</option>
                             @foreach ($categories as $category)
-                                <option value="{{$category->id}} {{old('category_id') == $category->id ? 'selected' : ''}}">{{$category->name}}</option>
+                                <option value="{{$category->id}}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                             @endforeach
                             @error('category_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
