@@ -98,7 +98,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required | string | max:255',
             'content' => 'required | string | max:65000',
-            'published' => 'sometimes | accepted'
+            'published' => 'sometimes | accepted',
+            'category_id' => 'nullable | exists:categories,id'
         ]);
         // aggiornamento
         $data = $request->all(); // prendo tutti i dati
