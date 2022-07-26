@@ -11,7 +11,12 @@
                     <a href="{{route('admin.categories.index')}}" class="btn btn-info">Tutte le categorie</a>
                 </div>
                 <div>
-                    
+                    <h3>I post associati</h3>
+                    <ul>
+                        @foreach ($category->posts as $post)
+                            <li>{{$post->title}}</li>
+                        @endforeach
+                    </ul>
                 </div>    
             </div>
         </div>        
