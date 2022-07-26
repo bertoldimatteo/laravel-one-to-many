@@ -10,14 +10,16 @@
                 <div class="mb-3">
                     <a href="{{route('admin.categories.index')}}" class="btn btn-info">Tutte le categorie</a>
                 </div>
-                <div>
-                    <h3>I post associati</h3>
-                    <ul>
-                        @foreach ($category->posts as $post)
-                            <li>{{$post->title}}</li>
-                        @endforeach
-                    </ul>
-                </div>    
+                @if (count($category->posts) > 0)
+                    <div>
+                        <h3>I post associati</h3>
+                        <ul>
+                            @foreach ($category->posts as $post)
+                                <li>{{$post->title}}</li>
+                            @endforeach
+                        </ul>
+                    </div>   
+                @endif 
             </div>
         </div>        
     </div>    
